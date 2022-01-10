@@ -17,7 +17,9 @@ require_once '../controllers/parameters-controller.php';
 </head>
 
 <body>
+
   <h1 class="red">Paramètres</h1>
+  
   <div class="form-check form-switch">
     <input class="form-check-input" type="checkbox" role="switch" id="darkMode">
     <label class="form-check-label" for="darkMode">Dark Mode</label>
@@ -26,19 +28,22 @@ require_once '../controllers/parameters-controller.php';
     <div>
       <label for="nbArticles">Nombre d'articles affichés sur la page d'accueil :</label>
       <select class="form-select" aria-label="Default select example">
-        <option value="1">6</option>
-        <option value="2">9</option>
-        <option value="3">12</option>
+        <option value="6">6</option>
+        <option value="9">9</option>
+        <option value="12">12</option>
       </select>
     </div>
     <div class="mt-3">
       <p>Choix des sujets : </p>
+      <?php foreach($fluxRss as $key => $value): ?>
+
       <div>
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+        <input class="form-check-input" type="checkbox" value="<?= $value ?>" id="flexCheckDefault1" name="<?= $key ?>">
         <label class="form-check-label" for="flexCheckDefault1">
-          Default checkbox
+        <?= $key ?>
         </label>
       </div>
+        <?php endforeach; ?>
       <input type="submit" name="submitParam" value="Envoyer">
   </form>
 
