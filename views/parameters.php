@@ -19,6 +19,8 @@ require_once '../controllers/parameters-controller.php';
 <body>
 
   <h1 class="red">Paramètres</h1>
+
+  <span class="text-danger"><?= $error ?? '' ?></span>
   
   <div class="form-check form-switch">
     <input class="form-check-input" type="checkbox" role="switch" id="darkMode">
@@ -27,7 +29,7 @@ require_once '../controllers/parameters-controller.php';
   <form method="POST">
     <div>
       <label for="nbArticles">Nombre d'articles affichés sur la page d'accueil :</label>
-      <select class="form-select" aria-label="Default select example">
+      <select class="form-select" aria-label="Default select example" name="article">
         <option value="6">6</option>
         <option value="9">9</option>
         <option value="12">12</option>

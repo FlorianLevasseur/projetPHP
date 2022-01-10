@@ -9,7 +9,6 @@ $fluxRss = [
     'Xbox-Series-X' =>'https://www.jeuxactu.com/rss/xbox-series-x.rss'
 ];
 
-var_dump($_POST);
 if(!empty($_POST)){
 
     $arrayLink = [];
@@ -20,14 +19,19 @@ if(!empty($_POST)){
         }
     }
 
-    $_SESSION['config'] = [
-        'nbArticles' => $_POST['article'],
-        'fluxRss' => $arrayLink
-        ];
+    if(count($arrayLink) != 3){
+        $error = 'Selectionnez trois flux rss';
+    }else{
+        $_SESSION['config'] = [
+            'nbArticles' => $_POST['article'],
+            'fluxRss' => $arrayLink
+            ];
+        header('Location: home.php');
+        exit();
+    }
 
+    
 }
-
-var_dump($_SESSION);
 
 
 ?>
