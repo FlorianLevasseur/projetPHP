@@ -3,3 +3,6 @@
     color: white;
 }
 
+.opac {
+    filter: brightness(50%);
+}

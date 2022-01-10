@@ -27,24 +27,24 @@ require_once '../controllers/home-controller.php';
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="..." class="d-block w-100" alt="...">
+        <img src="<?= $firstArticle->enclosure['url'] ?>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h5><?= $firstArticle->title ?></h5>
+          <p><?= $firstArticle->description ?></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
+        <img src="<?= $secondArticle->enclosure['url'] ?>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5><?= $secondArticle->title ?></h5>
+          <p><?= $secondArticle->description ?></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
+        <img src="<?= $thirdArticle->enclosure['url'] ?>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
+          <h5><?= $thirdArticle->title ?></h5>
+          <p><?= $thirdArticle->description ?></p>
         </div>
       </div>
     </div>
