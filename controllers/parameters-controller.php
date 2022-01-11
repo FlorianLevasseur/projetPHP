@@ -15,21 +15,21 @@ if (!isset($_SESSION['config'])) {
         'nbArticles' => 9,
         'fluxRss' => [
             'https://www.jeuxactu.com/rss/news.rss',
-            'https://www.jeuxactu.com/rss/tips.rss',
-            'https://www.jeuxactu.com/rss/tests.rss'
+            'https://www.jeuxactu.com/rss/tests.rss',
+            'https://www.jeuxactu.com/rss/multi.rss'
         ],
         'theme' => [
             'News',
-            'Tips',
-            'Tests'
+            'Tests',
+            'Multi'
         ]
     ];
 }
 
 $fluxRss = [
     'News' => 'https://www.jeuxactu.com/rss/news.rss',
-    'Tips' => 'https://www.jeuxactu.com/rss/tips.rss',
     'Tests' => 'https://www.jeuxactu.com/rss/tests.rss',
+    'Multi' => 'https://www.jeuxactu.com/rss/multi.rss',
     'Android' =>'https://www.jeuxactu.com/rss/android.rss',
     'Sorties' =>'https://www.jeuxactu.com/rss/sorties.rss'
 ];
