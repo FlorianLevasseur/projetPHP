@@ -59,10 +59,10 @@ require_once '../controllers/home-controller.php';
   </div>
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="pages.php?cat=<?= strtolower($_SESSION['config']['theme'][0]) ?>"><?= $_SESSION['config']['theme'][0] ?></a>
-      <a class="navbar-brand" href="pages.php?cat=<?= strtolower($_SESSION['config']['theme'][1]) ?>"><?= $_SESSION['config']['theme'][1] ?></a>
-      <a class="navbar-brand" href="pages.php?cat=<?= strtolower($_SESSION['config']['theme'][2]) ?>"><?= $_SESSION['config']['theme'][2] ?></a>
-      <a class="navbar-brand" href="parameters.php">Paramètres</a>
+      <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][0]) ?>.html"><?= $_SESSION['config']['theme'][0] ?></a>
+      <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][1]) ?>.html"><?= $_SESSION['config']['theme'][1] ?></a>
+      <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][2]) ?>.html"><?= $_SESSION['config']['theme'][2] ?></a>
+      <a class="navbar-brand" href="parametres.html">Paramètres</a>
     </div>
   </nav>
   <table class="table border border-white">

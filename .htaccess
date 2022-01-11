@@ -2,3 +2,10 @@ RewriteEngine On
 
 RewriteRule acceuil.html /views/home.php
 RewriteRule parametres.html /views/parameters.php
+RewriteRule news.html /views/pages.php?cat=news
+RewriteRule tests.html /views/pages.php?cat=tests
+RewriteRule ps5.html /views/pages.php?cat=ps5
+RewriteRule switch.html /views/pages.php?cat=switch
+RewriteRule xbox-series-x.html /views/pages.php?cat=xbox-series-x
+
+ErrorDocument 404 /404.php
