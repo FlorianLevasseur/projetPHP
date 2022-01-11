@@ -22,7 +22,7 @@ if (!isset($_SESSION['config'])) {
         'theme' => [
             'News',
             'Tests',
-            'PS5'
+            'Ps5'
         ]
     ];
 }

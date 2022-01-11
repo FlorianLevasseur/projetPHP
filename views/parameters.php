@@ -30,17 +30,16 @@ require_once '../controllers/parameters-controller.php';
     <div>
       <label for="nbArticles">Nombre d'articles affichés sur la page d'accueil :</label>
       <select class="form-select" aria-label="Default select example" name="article">
-        <option value="6">6</option>
-        <option value="9">9</option>
-        <option value="12">12</option>
+        <option value="6" <?= $_SESSION['config']['nbArticles'] == 6 ? 'selected' : '' ?>>6</option>
+        <option value="9" <?= $_SESSION['config']['nbArticles'] == 9 ? 'selected' : '' ?>>9</option>
+        <option value="12" <?= $_SESSION['config']['nbArticles'] == 12 ? 'selected' : '' ?>>12</option>
       </select>
     </div>
     <div class="mt-3">
       <p>Choix des sujets : </p>
       <?php foreach($fluxRss as $key => $value): ?>
-
       <div>
-        <input class="form-check-input" type="checkbox" value="<?= $value ?>" id="flexCheckDefault1" name="<?= $key ?>">
+        <input class="form-check-input" type="checkbox" value="<?= $value ?>" id="flexCheckDefault1" name="<?= $key ?>" <?= in_array($key, $_SESSION['config']['theme']) ? 'checked' : '' ?>>
         <label class="form-check-label" for="flexCheckDefault1">
         <?= $key ?>
         </label>

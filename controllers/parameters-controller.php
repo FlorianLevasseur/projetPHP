@@ -1,6 +1,31 @@
 <?php
 session_start();
 
+if(isset($_COOKIE['param'])){
+    $arrayCookie = json_decode($_COOKIE['param']);
+    $_SESSION['config'] = [
+        'nbArticles' => $arrayCookie->nbArticles,
+        'fluxRss' => $arrayCookie->fluxRss,
+        'theme' => $arrayCookie->theme
+    ];
+}
+
+if (!isset($_SESSION['config'])) {
+    $_SESSION['config'] = [
+        'nbArticles' => 9,
+        'fluxRss' => [
+            'https://www.jeuxactu.com/rss/news.rss',
+            'https://www.jeuxactu.com/rss/tests.rss',
+            'https://www.jeuxactu.com/rss/ps5.rss'
+        ],
+        'theme' => [
+            'News',
+            'Tests',
+            'Ps5'
+        ]
+    ];
+}
+
 $fluxRss = [
     'News' => 'https://www.jeuxactu.com/rss/news.rss',
     'Tests' => 'https://www.jeuxactu.com/rss/tests.rss',
