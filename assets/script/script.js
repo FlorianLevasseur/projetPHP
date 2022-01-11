@@ -8,13 +8,20 @@ if (document.getElementById("infoModal") != null) {
             imgModal.src = e.target.dataset.img;
             linkModal.href = e.target.dataset.link;
             titleModal.innerHTML = e.target.dataset.time + "<br>" + e.target.dataset.title;
-        }   
+        }
     })
 }
 
 
 if (document.cookie.includes("mode=dark")) {
     document.body.classList.add("darkBackColor")
+    if (document.getElementById("infoModal") != null) {
+        document.getElementById("infoModal").classList.add("text-white")
+    }
+    if (document.getElementById("myNavbar") != null) {
+        document.getElementById("myNavbar").classList.replace("navbar-light", "navbar-dark")
+        document.getElementById("myNavbar").classList.replace("bg-light", "bg-dark")
+    }
     if (document.getElementById("darkMode") != null) {
         document.getElementById("darkMode").checked = true
     }

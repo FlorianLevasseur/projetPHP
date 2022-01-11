@@ -57,7 +57,7 @@ require_once '../controllers/home-controller.php';
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-light bg-light" id="myNavbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][0]) ?>"><?= $_SESSION['config']['theme'][0] ?></a>
       <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][1]) ?>"><?= $_SESSION['config']['theme'][1] ?></a>
@@ -70,7 +70,7 @@ require_once '../controllers/home-controller.php';
       <?php foreach ($array_xml as $key => $value) { ?>
         <!-- <?php //$myDate = date_format($value->children('dc', true)->date,'d'); 
               ?> -->
-        <tr class="text-white">
+        <tr>
           <td width="1%" class="bg<?= $value->color ?>"></td>
           <td width="59%"><?= $value->title ?></td>
           <td width="20%" class="align-middle"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal" data-title="<?= $value->title ?>" data-description="<?= $value->description ?>" data-img="<?= $value->enclosure['url']  ?>" data-link="<?= $value->link ?>" data-time="<?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?>">Loupe</button></td>
