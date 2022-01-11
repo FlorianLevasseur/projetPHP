@@ -7,7 +7,7 @@ if (document.getElementById("infoModal") != null) {
             descriptionModal.textContent = e.target.dataset.description;
             imgModal.src = e.target.dataset.img;
             linkModal.href = e.target.dataset.link;
-            titleModal.textContent = e.target.dataset.title;
+            titleModal.innerHTML = e.target.dataset.time + "<br>" + e.target.dataset.title;
         }   
     })
 }

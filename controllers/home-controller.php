@@ -1,6 +1,8 @@
 <?php
-session_start();
+setlocale(LC_TIME, "fr_FR", "French");
+date_default_timezone_set('Europe/Paris');
 
+session_start();
 
 if(isset($_COOKIE['param'])){
     $arrayCookie = json_decode($_COOKIE['param']);

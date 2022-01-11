@@ -19,23 +19,23 @@ require_once '../controllers/pages-controller.php';
       
     <h1><?= $_GET['cat'] ?></h1>
     <?php
-    foreach($myXml as $value) {
-      var_dump($value);
-    }
-    ?>
-    <div class="row m-0 p-0 border border-white">
-      <div class="col-4">
-        <img src="#" class="img-fluid">
+    foreach($myXml->channel->item as $value) { ?>
+      <div class="row m-0 p-0 border border-white mb-2">
+      <div class="col-4 m-auto">
+        <img src="<?= $value->enclosure['url'] ?>" class="img-fluid">
       </div>
       <div class="col-8">
-        <p class="h3 my-2">Titre</p>
-        <p>Description</p>
-        <p>Date</p>
+        <p class="h3 my-2"><?= $value->title ?></p>
+        <p><?= $value->description ?></p>
+        <p><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?></p>
         <div class="text-end">
-          <a href="#" class="btn btn-danger">Aller vers l'article</a>
+          <a href="<?= $value->link ?>" class="btn btn-danger">Aller vers l'article</a>
         </div>
       </div>
     </div>
+    <?php } ?>
+  
+    
 
 
     <script src="../assets/script/script.js"></script>
