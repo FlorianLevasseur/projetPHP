@@ -1,5 +1,15 @@
 let date = new Date(Date.now() + 86400000); //86400000ms = 1 jour
+
 date = date.toUTCString();
+
+infoModal.addEventListener('click', (e) => {
+    if(e.target.nodeName == "BUTTON"){
+        descriptionModal.textContent = e.target.dataset.description;
+        imgModal.src = e.target.dataset.img;
+        linkModal.href = e.target.dataset.link;
+        titleModal.textContent = e.target.dataset.title;
+    }
+})
 
 if(document.cookie.includes("mode=dark")) {
     document.body.classList.add("darkBackColor")

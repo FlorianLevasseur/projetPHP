@@ -66,37 +66,40 @@ require_once '../controllers/home-controller.php';
     </div>
   </nav>
   <table class="table border border-white">
-    <tbody>
+    <tbody id="infoModal">
       <?php foreach ($array_xml as $key => $value) { ?>
         <!-- <?php //$myDate = date_format($value->children('dc', true)->date,'d'); ?> -->
         <tr class="text-white">
           <td width="1%" class="bg<?= $value->color ?>"></td>
           <td width="59%"><?= $value->title ?></td>
-          <td width="20%" class="align-middle"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal<?= $key ?>">Loupe</button></td>
+          <td width="20%" class="align-middle"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal" data-title="<?= $value->title ?>" data-description="<?= $value->description ?>" data-img="<?= $value->enclosure['url']  ?>" data-link="<?= $value->link ?>">Loupe</button></td>
           <td width="20%" class="align-middle"><a class="btn btn-danger" href="<?= $value->link ?>">Lien</a></td>
-          <div class="modal fade" id="modal<?= $key ?>" tabindex="-1" aria-labelledby="modal<?= $key ?>Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header m-auto">
-
-                  <p class="modal-title text-dark text-center h5" id="modal<?= $key ?>Label"><?= $value->title ?></p>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="<?= $value->enclosure['url'] ?>">
-                </div>
-                <div class="modal-footer">
-                  <p class="text-dark text-center"><?= $value->description ?></p>
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                  <a class="btn btn-primary" href="<?= $value->link ?>">Aller vers l'article</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </tr>
       <?php } ?>
 
     </tbody>
   </table>
+
+
+  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header m-auto">
+
+                  <p id="titleModal" class="modal-title text-dark text-center h5" id="modalLabel"></p>
+                </div>
+                <div class="modal-body text-center">
+                  <img id="imgModal" src="">
+                </div>
+                <div class="modal-footer">
+                  <p id="descriptionModal" class="text-dark text-center"></p>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                  <a id="linkModal" class="btn btn-primary" href="">Aller vers l'article</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
   <script src="../assets/script/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
