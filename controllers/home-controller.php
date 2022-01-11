@@ -18,13 +18,13 @@ if (!isset($_SESSION['config'])) {
         'nbArticles' => 9,
         'fluxRss' => [
             'https://www.jeuxactu.com/rss/news.rss',
-            'https://www.jeuxactu.com/rss/tests.rss',
-            'https://www.jeuxactu.com/rss/ps5.rss'
+            'https://www.jeuxactu.com/rss/tips.rss',
+            'https://www.jeuxactu.com/rss/tests.rss'
         ],
         'theme' => [
             'News',
-            'Tests',
-            'Ps5'
+            'Tips',
+            'Tests'
         ]
     ];
 }
