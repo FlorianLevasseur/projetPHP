@@ -17,7 +17,21 @@ require_once '../controllers/pages-controller.php';
 
   <body>
       
-    <h1>Article</h1>
+    <h1><?= $_GET['cat'] ?></h1>
+
+    <div class="row m-0 p-0 border border-white">
+      <div class="col-4">
+        <img src="#" class="img-fluid">
+      </div>
+      <div class="col-8">
+        <p class="h3 my-2">Titre</p>
+        <p>Description</p>
+        <p>Date</p>
+        <div class="text-end">
+          <a href="#" class="btn btn-danger">Aller vers l'article</a>
+        </div>
+      </div>
+    </div>
 
 
     <script src="../assets/script/script.js"></script>

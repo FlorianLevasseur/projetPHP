@@ -59,9 +59,9 @@ require_once '../controllers/home-controller.php';
   </div>
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="pages.php"><?= $_SESSION['config']['theme'][0] ?></a>
-      <a class="navbar-brand" href="pages.php"><?= $_SESSION['config']['theme'][1] ?></a>
-      <a class="navbar-brand" href="pages.php"><?= $_SESSION['config']['theme'][2] ?></a>
+      <a class="navbar-brand" href="pages.php?cat=<?= $_SESSION['config']['theme'][0] ?>"><?= $_SESSION['config']['theme'][0] ?></a>
+      <a class="navbar-brand" href="pages.php?cat=<?= $_SESSION['config']['theme'][1] ?>"><?= $_SESSION['config']['theme'][1] ?></a>
+      <a class="navbar-brand" href="pages.php?cat=<?= $_SESSION['config']['theme'][2] ?>"><?= $_SESSION['config']['theme'][2] ?></a>
       <a class="navbar-brand" href="parameters.php">Paramètres</a>
     </div>
   </nav>
