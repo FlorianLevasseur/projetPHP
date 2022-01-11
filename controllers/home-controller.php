@@ -1,6 +1,16 @@
 <?php
 session_start();
 
+
+if(isset($_COOKIE['param'])){
+    $arrayCookie = json_decode($_COOKIE['param']);
+    $_SESSION['config'] = [
+        'nbArticles' => $arrayCookie->nbArticles,
+        'fluxRss' => $arrayCookie->fluxRss,
+        'theme' => $arrayCookie->theme
+    ];
+}
+
 if (!isset($_SESSION['config'])) {
     $_SESSION['config'] = [
         'nbArticles' => 9,
