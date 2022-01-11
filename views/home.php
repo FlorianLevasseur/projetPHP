@@ -18,7 +18,7 @@ require_once '../controllers/home-controller.php';
 
 <body>
 
-  <h1 class="red">My Home Page</h1>
+  <h1>My Home Page</h1>
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -57,9 +57,46 @@ require_once '../controllers/home-controller.php';
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <div>
-    
-  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="pages.php"><?= $_SESSION['config']['theme'][0] ?></a>
+      <a class="navbar-brand" href="pages.php"><?= $_SESSION['config']['theme'][1] ?></a>
+      <a class="navbar-brand" href="pages.php"><?= $_SESSION['config']['theme'][2] ?></a>
+      <a class="navbar-brand" href="parameters.php">Paramètres</a>
+    </div>
+  </nav>
+  <table class="table border border-white">
+    <tbody>
+      <?php foreach ($array_xml as $key => $value) { ?>
+        <!-- <?php //$myDate = date_format($value->children('dc', true)->date,'d'); ?> -->
+        <tr class="text-white">
+          <td width="1%" class="bg<?= $value->color ?>"></td>
+          <td width="59%"><?= $value->title ?></td>
+          <td width="20%" class="align-middle"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal<?= $key ?>">Loupe</button></td>
+          <td width="20%" class="align-middle"><a class="btn btn-danger" href="<?= $value->link ?>">Lien</a></td>
+          <div class="modal fade" id="modal<?= $key ?>" tabindex="-1" aria-labelledby="modal<?= $key ?>Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header m-auto">
+
+                  <p class="modal-title text-dark text-center h5" id="modal<?= $key ?>Label"><?= $value->title ?></p>
+                </div>
+                <div class="modal-body text-center">
+                  <img src="<?= $value->enclosure['url'] ?>">
+                </div>
+                <div class="modal-footer">
+                  <p class="text-dark text-center"><?= $value->description ?></p>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                  <a class="btn btn-primary" href="<?= $value->link ?>">Aller vers l'article</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tr>
+      <?php } ?>
+
+    </tbody>
+  </table>
 
   <script src="../assets/script/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

@@ -6,3 +6,15 @@
 .opac {
     filter: brightness(50%);
 }
+
+td.bgred {
+    background-color: red;
+}
+
+td.bgblue {
+    background-color: blue;
+}
+
+td.bgyellow {
+    background-color: yellow;
+}

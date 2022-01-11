@@ -12,10 +12,12 @@ $fluxRss = [
 if(!empty($_POST)){
 
     $arrayLink = [];
+    $arrayTheme = [];
 
     foreach($fluxRss as $key => $value){
         if(array_key_exists($key, $_POST)){
-            $arrayLink[] = $_POST[$key]; 
+            $arrayLink[] = $_POST[$key];
+            $arrayTheme[] = $key;
         }
     }
 
@@ -24,7 +26,8 @@ if(!empty($_POST)){
     }else{
         $_SESSION['config'] = [
             'nbArticles' => $_POST['article'],
-            'fluxRss' => $arrayLink
+            'fluxRss' => $arrayLink,
+            'theme' => $arrayTheme
             ];
         header('Location: home.php');
         exit();
