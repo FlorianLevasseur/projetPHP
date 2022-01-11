@@ -18,7 +18,11 @@ require_once '../controllers/pages-controller.php';
   <body>
       
     <h1><?= $_GET['cat'] ?></h1>
-
+    <?php
+    foreach($myXml as $value) {
+      var_dump($value);
+    }
+    ?>
     <div class="row m-0 p-0 border border-white">
       <div class="col-4">
         <img src="#" class="img-fluid">
