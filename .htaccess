@@ -5,8 +5,8 @@ RewriteRule ^/?$ accueil
 RewriteRule parametres /views/parameters.php
 RewriteRule news /views/pages.php?cat=news
 RewriteRule tests /views/pages.php?cat=tests
-RewriteRule ps5 /views/pages.php?cat=ps5
-RewriteRule switch /views/pages.php?cat=switch
-RewriteRule xbox-series-x /views/pages.php?cat=xbox-series-x
+RewriteRule multi /views/pages.php?cat=multi
+RewriteRule android /views/pages.php?cat=android
+RewriteRule pc /views/pages.php?cat=pc
 
 ErrorDocument 404 /404.php

@@ -31,7 +31,7 @@ $fluxRss = [
     'Tests' => 'https://www.jeuxactu.com/rss/tests.rss',
     'Multi' => 'https://www.jeuxactu.com/rss/multi.rss',
     'Android' =>'https://www.jeuxactu.com/rss/android.rss',
-    'Sorties' =>'https://www.jeuxactu.com/rss/sorties.rss'
+    'PC' =>'https://www.jeuxactu.com/rss/pc.rss'
 ];
 
 if(!empty($_POST)){
