@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule acceuil.html /views/home.php
+RewriteRule parametres.html /views/parameters.php

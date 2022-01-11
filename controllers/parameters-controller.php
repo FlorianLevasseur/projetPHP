@@ -38,6 +38,7 @@ if(!empty($_POST)){
 
     $arrayLink = [];
     $arrayTheme = [];
+    
 
     foreach($fluxRss as $key => $value){
         if(array_key_exists($key, $_POST)){

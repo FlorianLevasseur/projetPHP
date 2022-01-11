@@ -1,5 +1,5 @@
 <?php
 
-header('Location: views/home.php');
+header('Location: acceuil.html');
 
 ?>
