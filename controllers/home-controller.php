@@ -23,6 +23,7 @@ $xml3 = simplexml_load_file($_SESSION['config']['fluxRss'][2]);
 
 $array_xml = [];
 
+
 for($i=0; $i < $_SESSION['config']['nbArticles'] / 3; $i++) {
 
     $xml->channel->item[$i]->date = $xml->channel->item[$i]->children('dc', true)->date;
