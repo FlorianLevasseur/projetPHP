@@ -56,7 +56,7 @@ if(!empty($_POST)){
             'theme' => $arrayTheme
             ];
         setcookie("param", json_encode($_SESSION['config']), time()+60*60*24*30, "/");
-        header('Location: home.php');
+        header('Location: accueil');
         exit();
     }
 
