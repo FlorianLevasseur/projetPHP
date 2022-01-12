@@ -18,7 +18,9 @@ require_once '../controllers/pages-controller.php';
 </head>
 
 <body>
-  <a href="/"><img class="img-fluid" src="../assets/img/Logo.png" alt="Logo du site"></a>
+  <div class="text-center">
+    <a href="/"><img class="img-fluid" src="../assets/img/Logo.png" alt="Logo du site"></a>
+  </div>
   <h1 class="text-center"><?= ucfirst($_GET['cat']) ?></h1>
   <div class="row p-0 mx-0">
     <?php foreach ($myXml->channel->item as $value) { ?>

@@ -18,7 +18,9 @@ require_once '../controllers/home-controller.php';
 </head>
 
 <body>
-  <a href="/"><img class="img-fluid" src="../assets/img/Logo.png" alt="Logo du site"></a>
+  <div class="text-center">
+    <a href="/"><img class="img-fluid" src="../assets/img/Logo.png" alt="Logo du site"></a>
+  </div>
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -63,7 +65,7 @@ require_once '../controllers/home-controller.php';
         <tr>
           <td width="1%" class="bg<?= $value->color ?>"></td>
           <td width="59%"><?= $value->title ?></td>
-          <td width="20%" class="align-middle"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal" data-title="<?= $value->title ?>" data-description="<?= $value->description ?>" data-img="<?= $value->enclosure['url']  ?>" data-link="<?= $value->link ?>" data-time="<?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?>">Loupe</button></td>
+          <td width="20%" class="align-middle"><i class="btn btn-danger bi bi-search" data-bs-toggle="modal" data-bs-target="#modal" data-title="<?= $value->title ?>" data-description="<?= $value->description ?>" data-img="<?= $value->enclosure['url']  ?>" data-link="<?= $value->link ?>" data-time="<?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?>"></i></td>
           <td width="20%" class="align-middle"><a class="btn btn-danger" href="<?= $value->link ?>">Lien</a></td>
         </tr>
       <?php } ?>
@@ -80,12 +82,12 @@ require_once '../controllers/home-controller.php';
           <p id="titleModal" class="modal-title text-dark text-center h5" id="modalLabel"></p>
         </div>
         <div class="modal-body text-center">
-          <img id="imgModal" src="">
+          <img class="img-fluid" id="imgModal" src="">
         </div>
         <div class="modal-footer">
           <p id="descriptionModal" class="text-dark text-center"></p>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-          <a id="linkModal" class="btn btn-primary" href="">Aller vers l'article</a>
+          <a id="linkModal" class="btn btn-danger" href="">Aller vers l'article</a>
         </div>
       </div>
     </div>

@@ -8,15 +8,15 @@
 }
 
 td.bgred {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.795);
 }
 
 td.bgblue {
-    background-color: blue;
+    background-color: rgba(0, 0, 255, 0.452);
 }
 
 td.bgyellow {
-    background-color: yellow;
+    background-color: rgba(255, 255, 0, 0.74);
 }
 
 footer {

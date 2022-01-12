@@ -3,7 +3,7 @@ date = date.toUTCString();
 
 if (document.getElementById("infoModal") != null) {
     infoModal.addEventListener('click', (e) => {
-        if (e.target.nodeName == "BUTTON") {
+        if (e.target.nodeName == "I") {
             descriptionModal.textContent = e.target.dataset.description;
             imgModal.src = e.target.dataset.img;
             linkModal.href = e.target.dataset.link;
