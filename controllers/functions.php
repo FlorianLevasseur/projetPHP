@@ -13,13 +13,49 @@ $nbArticles = [6, 9, 12];
 /**
  * 
  */
-function getXML(array $arrayXML) : array
+function getXML(array $fluxRss, array $theme, int $nbArticles)
 {
     $arrayMultiXML = [];
-    foreach($arrayXML as $value){
-        $arrayMultiXML[] = basename($_SERVER['PHP_SELF']) == 'home.php' ? simplexml_load_file($value)->channel->item : simplexml_load_file($value)->channel;
+    $arrayDisplayXML = [];
+
+    foreach($fluxRss as $value){
+        $arrayMultiXML[] = simplexml_load_file($value)->channel->item;
     }
-    return $arrayMultiXML;
+
+
+    [$xml1, $xml2, $xml3] = $arrayMultiXML;
+
+    for($i=0; $i < $nbArticles / 3; $i++)
+    {
+        $xml1[$i]->color = 'red';
+        $xml2[$i]->color = 'blue';
+        $xml3[$i]->color = 'yellow';
+
+        $xml1[$i]->flux = $theme[0];
+        $xml2[$i]->flux = $theme[1];
+        $xml3[$i]->flux = $theme[2];
+
+        $xml1[$i]->date = $xml1[$i]->children('dc', true)->date;
+        $xml2[$i]->date = $xml2[$i]->children('dc', true)->date;
+        $xml3[$i]->date = $xml3[$i]->children('dc', true)->date;
+
+        $arrayDisplayXML['flux'][] = $xml1[$i];
+        $arrayDisplayXML['flux'][] = $xml2[$i];
+        $arrayDisplayXML['flux'][] = $xml3[$i];
+
+        if($i == 0){
+        $arrayDisplayXML['image'][] = $xml1[$i];
+        $arrayDisplayXML['image'][] = $xml2[$i];
+        $arrayDisplayXML['image'][] = $xml3[$i];
+        }
+    }
+
+    usort($arrayDisplayXML['flux'], 'dateCompare');
+    usort($arrayDisplayXML['image'], 'dateCompare');
+    $arrayDisplayXML['flux'] = array_reverse($arrayDisplayXML['flux']);
+    $arrayDisplayXML['image'] = array_reverse($arrayDisplayXML['image']);
+
+    return $arrayDisplayXML;
 }
 
 
@@ -27,11 +63,9 @@ function getXML(array $arrayXML) : array
 /**
  * 
  */
-function dateCompare($a, $b)
+function dateCompare($a, $b) : int
 {
-    $t1 = strtotime($a->date);
-    $t2 = strtotime($b->date);
-    return $t1 - $t2;
+    return strtotime($a->date) - strtotime($b->date);
 }
 
 

@@ -18,6 +18,7 @@ require_once '../controllers/home-controller.php';
 </head>
 
 <body>
+
   <div class="text-center">
     <a href="/"><img class="img-fluid" src="../assets/img/Logo.png" alt="Logo du site"></a>
   </div>
@@ -29,24 +30,24 @@ require_once '../controllers/home-controller.php';
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="<?= $xml1->enclosure['url'] ?>" class="d-block w-100" alt="...">
+        <img src="<?= $array_xml['image'][0]->enclosure['url'] ?>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><?= $xml1->title ?></h5>
-          <p><?= $xml1->description ?></p>
+          <h5><?= $array_xml['image'][0]->title ?></h5>
+          <p><?= $array_xml['image'][0]->description ?></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="<?= $xml2->enclosure['url'] ?>" class="d-block w-100" alt="...">
+        <img src="<?= $array_xml['image'][1]->enclosure['url'] ?>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><?= $xml2->title ?></h5>
-          <p><?= $xml2->description ?></p>
+          <h5><?= $array_xml['image'][1]->title ?></h5>
+          <p><?= $array_xml['image'][1]->description ?></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="<?= $xml3->enclosure['url'] ?>" class="d-block w-100" alt="...">
+        <img src="<?= $array_xml['image'][2]->enclosure['url'] ?>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><?= $xml3->title ?></h5>
-          <p><?= $xml3->description ?></p>
+          <h5><?= $array_xml['image'][2]->title ?></h5>
+          <p><?= $array_xml['image'][2]->description ?></p>
         </div>
       </div>
     </div>
@@ -61,7 +62,7 @@ require_once '../controllers/home-controller.php';
   </div>
   <table class="table border border-dark" id="myTable">
     <tbody id="infoModal">
-      <?php foreach ($array_xml as $key => $value) { ?>
+      <?php foreach ($array_xml['flux'] as $key => $value) { ?>
         <tr>
           <td width="1%" class="bg<?= $value->color ?>"></td>
           <td width="59%"><b><i>#<?= $value->flux ?></i></b><br><?= $value->title ?></td>
