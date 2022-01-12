@@ -13,49 +13,48 @@ $nbArticles = [6, 9, 12];
 /**
  * 
  */
-function getXML(array $fluxRss, array $theme, int $nbArticles)
+function getXML(array $fluxRss, array $theme, int $nbArticles) : array
 {
     $arrayMultiXML = [];
     $arrayDisplayXML = [];
+    $color = ['red', 'blue', 'yellow'];
 
     foreach($fluxRss as $value){
         $arrayMultiXML[] = simplexml_load_file($value)->channel->item;
     }
 
+    foreach($arrayMultiXML as $key => $value){
 
-    [$xml1, $xml2, $xml3] = $arrayMultiXML;
+        $i = 0;
 
-    for($i=0; $i < $nbArticles / 3; $i++)
-    {
-        $xml1[$i]->color = 'red';
-        $xml2[$i]->color = 'blue';
-        $xml3[$i]->color = 'yellow';
+        foreach($value as $elt){
 
-        $xml1[$i]->flux = $theme[0];
-        $xml2[$i]->flux = $theme[1];
-        $xml3[$i]->flux = $theme[2];
+            if($i < $nbArticles / 3){
 
-        $xml1[$i]->date = $xml1[$i]->children('dc', true)->date;
-        $xml2[$i]->date = $xml2[$i]->children('dc', true)->date;
-        $xml3[$i]->date = $xml3[$i]->children('dc', true)->date;
-
-        $arrayDisplayXML['flux'][] = $xml1[$i];
-        $arrayDisplayXML['flux'][] = $xml2[$i];
-        $arrayDisplayXML['flux'][] = $xml3[$i];
-
-        if($i == 0){
-        $arrayDisplayXML['image'][] = $xml1[$i];
-        $arrayDisplayXML['image'][] = $xml2[$i];
-        $arrayDisplayXML['image'][] = $xml3[$i];
+                $elt->color = $color[$key];
+                $elt->flux = $theme[$key];
+                $elt->date = $elt->children('dc', true)->date;
+                $arrayDisplayXML['flux'][] = $elt;
+                if($i == 0) $arrayDisplayXML['image'][] = $elt;
+                $i++;
+            }
         }
     }
 
-    usort($arrayDisplayXML['flux'], 'dateCompare');
-    usort($arrayDisplayXML['image'], 'dateCompare');
-    $arrayDisplayXML['flux'] = array_reverse($arrayDisplayXML['flux']);
-    $arrayDisplayXML['image'] = array_reverse($arrayDisplayXML['image']);
+    $arrayDisplayXML['flux'] = sortDate($arrayDisplayXML['flux']);
+    $arrayDisplayXML['image'] = sortDate($arrayDisplayXML['image']);
 
     return $arrayDisplayXML;
+}
+
+
+/**
+ * 
+ */
+function sortDate(array $displayFlux) : array
+{
+    usort($displayFlux, 'dateCompare');
+    return array_reverse($displayFlux);
 }
 
 
