@@ -63,7 +63,7 @@ function setParam(array $fluxRss, array $nbArticles) : string
     ];
 
     setcookie("param", json_encode($_SESSION['config']), time()+60*60*24*30, "/");
-    header('Location: ../index.php');
+    header('Location: /');
     exit();
 }
 

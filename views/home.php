@@ -12,13 +12,13 @@ require_once '../controllers/home-controller.php';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../assets/style/style.css">
 
 </head>
 
 <body>
-
-  <h1>My Home Page</h1>
+  <a href="/"><img class="img-fluid" src="../assets/img/Logo.png" alt="Logo du site"></a>
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -57,15 +57,7 @@ require_once '../controllers/home-controller.php';
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <nav class="navbar navbar-light bg-light" id="myNavbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][0]) ?>"><?= $_SESSION['config']['theme'][0] ?></a>
-      <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][1]) ?>"><?= $_SESSION['config']['theme'][1] ?></a>
-      <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][2]) ?>"><?= $_SESSION['config']['theme'][2] ?></a>
-      <a class="navbar-brand" href="parametres">Paramètres</a>
-    </div>
-  </nav>
-  <table class="table border border-white">
+  <table class="table border border-dark" id="myTable">
     <tbody id="infoModal">
       <?php foreach ($array_xml as $key => $value) { ?>
         <tr>
@@ -98,6 +90,18 @@ require_once '../controllers/home-controller.php';
       </div>
     </div>
   </div>
+
+  <footer>
+    <nav class="navbar navbar-light bg-light" id="myNavbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][0]) ?>"><?= $_SESSION['config']['theme'][0] ?></a>
+        <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][1]) ?>"><?= $_SESSION['config']['theme'][1] ?></a>
+        <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][2]) ?>"><?= $_SESSION['config']['theme'][2] ?></a>
+        <a class="navbar-brand" href="parametres"><i class="bi bi-gear-fill"></i></a>
+      </div>
+    </nav>
+  </footer>
+
 
   <script src="../assets/script/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

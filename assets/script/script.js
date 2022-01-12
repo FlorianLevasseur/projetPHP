@@ -17,6 +17,7 @@ if (document.cookie.includes("mode=dark")) {
     document.body.classList.add("darkBackColor")
     if (document.getElementById("infoModal") != null) {
         document.getElementById("infoModal").classList.add("text-white")
+        document.getElementById("myTable").classList.replace("border-dark","border-white")
     }
     if (document.getElementById("myNavbar") != null) {
         document.getElementById("myNavbar").classList.replace("navbar-light", "navbar-dark")
@@ -24,6 +25,11 @@ if (document.cookie.includes("mode=dark")) {
     }
     if (document.getElementById("darkMode") != null) {
         document.getElementById("darkMode").checked = true
+    }
+    let arrayCards = document.getElementsByClassName("card")
+    for(let item of arrayCards){
+        item.classList.add("bg-dark")
+        item.classList.replace("border-dark", "border-white")
     }
 }
 

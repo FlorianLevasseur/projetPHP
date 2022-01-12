@@ -18,3 +18,14 @@ td.bgblue {
 td.bgyellow {
     background-color: yellow;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.table, .row {
+    margin-bottom: 4rem;
+}
