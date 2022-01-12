@@ -1,7 +1,7 @@
 <?php
 require_once 'functions.php';
 
-getParam();
+$myConfig = getParam();
 
 
 [$news, $tests, $multi, $android, $pc] = getXML($fluxRss);

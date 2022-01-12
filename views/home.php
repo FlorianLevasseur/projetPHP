@@ -96,9 +96,9 @@ require_once '../controllers/home-controller.php';
   <footer>
     <nav class="navbar navbar-light bg-light" id="myNavbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][0]) ?>"><?= $_SESSION['config']['theme'][0] ?></a>
-        <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][1]) ?>"><?= $_SESSION['config']['theme'][1] ?></a>
-        <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][2]) ?>"><?= $_SESSION['config']['theme'][2] ?></a>
+        <a class="navbar-brand" href="<?= strtolower($myConfig['theme'][0]) ?>"><?= $myConfig['theme'][0] ?></a>
+        <a class="navbar-brand" href="<?= strtolower($myConfig['theme'][1]) ?>"><?= $myConfig['theme'][1] ?></a>
+        <a class="navbar-brand" href="<?= strtolower($myConfig['theme'][2]) ?>"><?= $myConfig['theme'][2] ?></a>
         <a class="navbar-brand" href="parametres"><i class="bi bi-gear-fill"></i></a>
       </div>
     </nav>
