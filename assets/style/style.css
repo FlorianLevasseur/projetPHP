@@ -26,6 +26,13 @@ footer {
     right: 0;
 }
 
-.table, .row {
+.table,
+.row {
     margin-bottom: 4rem;
+}
+
+.fullPage {
+    height: 100vh;
+    display: table-cell;
+    vertical-align: middle
 }

@@ -16,6 +16,10 @@ for($i=0; $i < $_SESSION['config']['nbArticles'] / 3; $i++)
     $xml2[$i]->color = 'blue';
     $xml3[$i]->color = 'yellow';
 
+    $xml1[$i]->flux = $_SESSION['config']['theme'][0];
+    $xml2[$i]->flux = $_SESSION['config']['theme'][1];
+    $xml3[$i]->flux = $_SESSION['config']['theme'][2];
+
     $xml1[$i]->date = $xml1[$i]->children('dc', true)->date;
     $xml2[$i]->date = $xml2[$i]->children('dc', true)->date;
     $xml3[$i]->date = $xml3[$i]->children('dc', true)->date;

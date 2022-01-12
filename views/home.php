@@ -64,8 +64,8 @@ require_once '../controllers/home-controller.php';
       <?php foreach ($array_xml as $key => $value) { ?>
         <tr>
           <td width="1%" class="bg<?= $value->color ?>"></td>
-          <td width="59%"><?= $value->title ?></td>
-          <td width="20%" class="align-middle"><i class="btn btn-danger bi bi-search" data-bs-toggle="modal" data-bs-target="#modal" data-title="<?= $value->title ?>" data-description="<?= $value->description ?>" data-img="<?= $value->enclosure['url']  ?>" data-link="<?= $value->link ?>" data-time="<?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?>"></i></td>
+          <td width="59%"><b><i>#<?= $value->flux ?></i></b><br><?= $value->title ?></td>
+          <td width="20%" class="align-middle"><i class="btn btn-danger bi bi-search" data-bs-toggle="modal" data-bs-target="#modal" data-flux="<?= $value->flux ?>" data-title="<?= $value->title ?>" data-description="<?= $value->description ?>" data-img="<?= $value->enclosure['url']  ?>" data-link="<?= $value->link ?>" data-time="<?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?>"></i></td>
           <td width="20%" class="align-middle"><a class="btn btn-danger" href="<?= $value->link ?>">Lien</a></td>
         </tr>
       <?php } ?>
@@ -76,7 +76,7 @@ require_once '../controllers/home-controller.php';
 
   <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+      <div class="modal-content" id="fullModal">
         <div class="modal-header m-auto">
 
           <p id="titleModal" class="modal-title text-dark text-center h5" id="modalLabel"></p>
@@ -85,7 +85,7 @@ require_once '../controllers/home-controller.php';
           <img class="img-fluid" id="imgModal" src="">
         </div>
         <div class="modal-footer">
-          <p id="descriptionModal" class="text-dark text-center"></p>
+          <p id="descriptionModal" class="text-dark text-center mb-3"></p>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
           <a id="linkModal" class="btn btn-danger" href="">Aller vers l'article</a>
         </div>

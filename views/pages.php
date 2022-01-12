@@ -30,7 +30,7 @@ require_once '../controllers/pages-controller.php';
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><?= $value->title ?></h5>
             <p class="card-text"><?= $value->description ?></p>
-            <p class="card-text"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?></p>
+            <p class="card-text"><u><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?></u></p>
             <div class="text-end mt-auto">
               <a href="<?= $value->link ?>" class="btn btn-danger">Aller vers l'article</a>
             </div>
@@ -43,9 +43,9 @@ require_once '../controllers/pages-controller.php';
   <footer>
     <nav class="navbar navbar-light bg-light" id="myNavbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][0]) ?>"><?= $_SESSION['config']['theme'][0] ?></a>
-        <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][1]) ?>"><?= $_SESSION['config']['theme'][1] ?></a>
-        <a class="navbar-brand" href="<?= strtolower($_SESSION['config']['theme'][2]) ?>"><?= $_SESSION['config']['theme'][2] ?></a>
+        <a class="navbar-brand <?= $_GET['cat'] == strtolower($_SESSION['config']['theme'][0]) ? 'text-danger' : '' ?>" href="<?= strtolower($_SESSION['config']['theme'][0]) ?>"><?= $_SESSION['config']['theme'][0] ?></a>
+        <a class="navbar-brand <?= $_GET['cat'] == strtolower($_SESSION['config']['theme'][1]) ? 'text-danger' : '' ?>" href="<?= strtolower($_SESSION['config']['theme'][1]) ?>"><?= $_SESSION['config']['theme'][1] ?></a>
+        <a class="navbar-brand <?= $_GET['cat'] == strtolower($_SESSION['config']['theme'][2]) ? 'text-danger' : '' ?>" href="<?= strtolower($_SESSION['config']['theme'][2]) ?>"><?= $_SESSION['config']['theme'][2] ?></a>
         <a class="navbar-brand" href="parametres"><i class="bi bi-gear-fill"></i></a>
       </div>
     </nav>

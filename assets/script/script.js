@@ -7,7 +7,7 @@ if (document.getElementById("infoModal") != null) {
             descriptionModal.textContent = e.target.dataset.description;
             imgModal.src = e.target.dataset.img;
             linkModal.href = e.target.dataset.link;
-            titleModal.innerHTML = e.target.dataset.time + "<br>" + e.target.dataset.title;
+            titleModal.innerHTML = "<b><i>#" + e.target.dataset.flux + "</i></b><br><u>" + e.target.dataset.time + "</u><br>" + e.target.dataset.title;
         }
     })
 }
@@ -18,6 +18,9 @@ if (document.cookie.includes("mode=dark")) {
     if (document.getElementById("infoModal") != null) {
         document.getElementById("infoModal").classList.add("text-white")
         document.getElementById("myTable").classList.replace("border-dark","border-white")
+        document.getElementById("fullModal").classList.add("bg-dark")
+        document.getElementById("titleModal").classList.replace("text-dark","text-white")
+        document.getElementById("descriptionModal").classList.replace("text-dark","text-white")
     }
     if (document.getElementById("myNavbar") != null) {
         document.getElementById("myNavbar").classList.replace("navbar-light", "navbar-dark")
