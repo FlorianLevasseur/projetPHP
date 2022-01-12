@@ -27,24 +27,24 @@ require_once '../controllers/home-controller.php';
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="<?= $firstArticle->enclosure['url'] ?>" class="d-block w-100" alt="...">
+        <img src="<?= $xml1->enclosure['url'] ?>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><?= $firstArticle->title ?></h5>
-          <p><?= $firstArticle->description ?></p>
+          <h5><?= $xml1->title ?></h5>
+          <p><?= $xml1->description ?></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="<?= $secondArticle->enclosure['url'] ?>" class="d-block w-100" alt="...">
+        <img src="<?= $xml2->enclosure['url'] ?>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><?= $secondArticle->title ?></h5>
-          <p><?= $secondArticle->description ?></p>
+          <h5><?= $xml2->title ?></h5>
+          <p><?= $xml2->description ?></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="<?= $thirdArticle->enclosure['url'] ?>" class="d-block w-100" alt="...">
+        <img src="<?= $xml3->enclosure['url'] ?>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><?= $thirdArticle->title ?></h5>
-          <p><?= $thirdArticle->description ?></p>
+          <h5><?= $xml3->title ?></h5>
+          <p><?= $xml3->description ?></p>
         </div>
       </div>
     </div>
@@ -68,14 +68,11 @@ require_once '../controllers/home-controller.php';
   <table class="table border border-white">
     <tbody id="infoModal">
       <?php foreach ($array_xml as $key => $value) { ?>
-        <!-- <?php //$myDate = date_format($value->children('dc', true)->date,'d'); 
-              ?> -->
         <tr>
           <td width="1%" class="bg<?= $value->color ?>"></td>
           <td width="59%"><?= $value->title ?></td>
           <td width="20%" class="align-middle"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal" data-title="<?= $value->title ?>" data-description="<?= $value->description ?>" data-img="<?= $value->enclosure['url']  ?>" data-link="<?= $value->link ?>" data-time="<?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?>">Loupe</button></td>
           <td width="20%" class="align-middle"><a class="btn btn-danger" href="<?= $value->link ?>">Lien</a></td>
-
         </tr>
       <?php } ?>
 

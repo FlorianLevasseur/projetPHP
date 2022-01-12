@@ -39,7 +39,7 @@ require_once '../controllers/parameters-controller.php';
       <p>Choix des sujets : </p>
       <?php foreach($fluxRss as $key => $value): ?>
       <div>
-        <input class="form-check-input" type="checkbox" value="<?= $value ?>" id="flexCheckDefault1" name="<?= $key ?>" <?= in_array($key, $_SESSION['config']['theme']) ? 'checked' : '' ?>>
+        <input class="form-check-input" type="checkbox" value="<?= $value ?>" id="flexCheckDefault1" name="checkbox[]" <?= in_array($value, $_SESSION['config']['fluxRss']) ? 'checked' : ''?>>
         <label class="form-check-label" for="flexCheckDefault1">
         <?= $key ?>
         </label>
