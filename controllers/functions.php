@@ -13,13 +13,13 @@ $nbArticles = [6, 9, 12];
  * Fonction permettant de retourner un tableau d'objets selon la configuration des paramètres de l'application.
  * Elle récupère et stocke dans un tableau primaire tous les objets XML et elle permet de trier et d'extraire dans un tableau secondaire les objets XML en fonction
  * de la configuration de l'application.
- * @param type ARRAY                    ( Tableau contenant les flux à afficher )
- * @param type ARRAY                    ( Tableau contenant les thématiques à afficher )
- * @param type INT                      ( Entier indiquant le nombre d'élements à récuperer )
+ * @param type MIXED                    ( Tableau contenant la configuration de l'application )
  * @return type ARRAY                   ( Tableau d'objets qui sera utilisé pour la vue )
  */
-function getXML(array $fluxRss, array $theme, int $nbArticles) : array
+function getXML($config) : array
 {
+    extract($config);
+
     $arrayMultiXML = [];
     $arrayDisplayXML = [];
     $color = ['red', 'blue', 'yellow'];
