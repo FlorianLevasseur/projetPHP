@@ -1,5 +1,4 @@
 <?php
-
 $fluxRss = [
                 'News'          =>'https://www.jeuxactu.com/rss/news.rss',
                 'Tests'         =>'https://www.jeuxactu.com/rss/tests.rss',
@@ -11,7 +10,13 @@ $fluxRss = [
 $nbArticles = [6, 9, 12];
 
 /**
- * 
+ * Fonction permettant de retourner un tableau d'objets selon la configuration des paramètres de l'application.
+ * Elle récupère et stocke dans un tableau primaire tous les objets XML et elle permet de trier et d'extraire dans un tableau secondaire les objets XML en fonction
+ * de la configuration de l'application.
+ * @param type ARRAY                    ( Tableau contenant les flux à afficher )
+ * @param type ARRAY                    ( Tableau contenant les thématiques à afficher )
+ * @param type INT                      ( Entier indiquant le nombre d'élements à récuperer )
+ * @return type ARRAY                   ( Tableau d'objets qui sera utilisé pour la vue )
  */
 function getXML(array $fluxRss, array $theme, int $nbArticles) : array
 {
@@ -48,29 +53,24 @@ function getXML(array $fluxRss, array $theme, int $nbArticles) : array
 }
 
 
+
 /**
- * 
+ * Fonction permettant de retourner un Tableau contenant des objets, trié par ordre décroissant selon les dates ( utilisée dans la fonction getXML(); )
+ * @return type ARRAY 
  */
 function sortDate(array $displayFlux) : array
 {
-    usort($displayFlux, 'dateCompare');
+    usort($displayFlux, function ($a, $b) { return strtotime($a->date) - strtotime($b->date); });
+
     return array_reverse($displayFlux);
 }
 
 
 
 /**
- * 
- */
-function dateCompare($a, $b) : int
-{
-    return strtotime($a->date) - strtotime($b->date);
-}
-
-
-
-/**
- * 
+ * Fonction permettant de récuperer les paramètres de l'application depuis un cookie afin d'initialiser l'application des Flux RSS
+ * Si aucun cookie n'existe alors on attribue des valeurs par défaut !
+ * @return type ARRAY                   ( Tableau qui contiendra la configuration de notre application )
  */
 function getParam() : array
 {
@@ -94,7 +94,10 @@ function getParam() : array
 
 
 /**
- * 
+ * Fonction permettant de sauvegarder les nouveaux paramètres dans un cookie
+ * @param type ARRAY                ( tableau contenant les liens des flux RSS autorisés )
+ * @param type ARRAY                ( tableau contenant la liste autorisée du nombre d'articles à afficher dans HOME.PHP )
+ * @return type STRING | VOID       (  Renvoie une erreur  |  SET le cookie et redirige vers l'index  )
  */
 function setParam(array $fluxRss, array $nbArticles) : string
 {
@@ -108,7 +111,7 @@ function setParam(array $fluxRss, array $nbArticles) : string
     }
 
     $theme = array_map(function ($element) {
-                                                        return $element = ucfirst(explode(".", explode("/", $element)[4])[0]);
+                                                        return ucfirst(explode(".", explode("/", $element)[4])[0]);
     }, $_POST['checkbox']);
 
     $myConfig = [

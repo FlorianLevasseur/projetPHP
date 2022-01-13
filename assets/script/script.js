@@ -2,6 +2,8 @@ let date = new Date(Date.now() + 86400000); //86400000ms = 1 jour
 date = date.toUTCString();
 let arrayCard = document.getElementsByClassName("card")
 
+
+// Script permettant d'afficher les informations d'un flux dans la MODAL (views/home.php)
 if (document.getElementById("infoModal") != null) {
     infoModal.addEventListener('click', (e) => {
         if (e.target.nodeName == "I") {
@@ -13,6 +15,8 @@ if (document.getElementById("infoModal") != null) {
     })
 }
 
+
+// Script permettant de gérer le darkMode
 if (document.getElementById("darkMode") != null) {
     for(let elt of arrayCard){
         if (elt.children[0].checked) {

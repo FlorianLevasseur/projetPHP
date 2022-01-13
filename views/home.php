@@ -66,7 +66,7 @@ require_once '../controllers/home-controller.php';
         <tr>
           <td width="1%" class="bg<?= $value->color ?>"></td>
           <td width="59%"><b><i>#<?= $value->flux ?></i></b><br><?= $value->title ?></td>
-          <td width="20%" class="align-middle"><i class="btn btn-danger bi bi-search" data-bs-toggle="modal" data-bs-target="#modal" data-flux="<?= $value->flux ?>" data-title="<?= $value->title ?>" data-description="<?= $value->description ?>" data-img="<?= $value->enclosure['url']  ?>" data-link="<?= $value->link ?>" data-time="<?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->children('dc', true)->date))) ?>"></i></td>
+          <td width="20%" class="align-middle"><i class="btn btn-danger bi bi-search" data-bs-toggle="modal" data-bs-target="#modal" data-flux="<?= $value->flux ?>" data-title="<?= $value->title ?>" data-description="<?= $value->description ?>" data-img="<?= $value->enclosure['url']  ?>" data-link="<?= $value->link ?>" data-time="<?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($value->date))) ?>"></i></td>
           <td width="20%" class="align-middle"><a class="btn btn-danger" href="<?= $value->link ?>">Lien</a></td>
         </tr>
       <?php } ?>
