@@ -68,7 +68,6 @@ if (document.cookie.includes("mode=dark")) {
         }
         item.classList.replace("border-dark", "border-white")
     }
-
 }
 
 if (document.getElementById("darkMode") != null) {
