@@ -15,7 +15,7 @@
 <body>
   <div class="fullPage text-center">
     <img class="img-fluid" src="assets/img/404.jpg" alt="Erreur 404">
-    <a class="btn btn-danger" href="/">Retour à l'accueil</a>
+    <a class="btn btn-danger mt-3" href="/">Retour à l'accueil</a>
   </div>  
 
   <script src="../assets/script/script.js"></script>
