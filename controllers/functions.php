@@ -19,9 +19,6 @@ $nbArticles = [6, 9, 12];
 function getXML($config) : array
 {
     extract($config);
-
-    $arrayMultiXML = [];
-    $arrayDisplayXML = [];
     $color = ['red', 'blue', 'yellow'];
 
     foreach($fluxRss as $value){
@@ -110,14 +107,12 @@ function setParam(array $fluxRss, array $nbArticles) : string
         if(!in_array($value, $fluxRss))                 return "Le flux RSS n'est pas valide";
     }
 
-    $theme = array_map(function ($element) {
-                                                        return ucfirst(explode(".", explode("/", $element)[4])[0]);
-    }, $_POST['checkbox']);
-
     $myConfig = [
                                 'nbArticles'    => $_POST['article'],
                                 'fluxRss'       => $_POST['checkbox'],
-                                'theme'         => $theme
+                                'theme'         => array_map(function ($element) {
+                                                        return ucfirst(explode(".", explode("/", $element)[4])[0]); }
+                                                , $_POST['checkbox'])
     ];
 
     setcookie("param", json_encode($myConfig), time()+60*60*24*30, "/");
