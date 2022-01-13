@@ -22,22 +22,22 @@ if (document.getElementById("darkMode") != null) {
             elt.classList.replace("border-dark", "border-danger")
         }
 
-        elt.addEventListener("click", (e) => {
-            if (e.target.children[0].checked) {
-                e.target.children[0].checked = false
-                e.target.children[1].classList.remove("text-danger")
-                e.target.children[1].classList.remove("fw-bold")
+        elt.addEventListener("click", () => {
+            if (elt.children[0].checked) {
+                elt.children[0].checked = false
+                elt.children[1].classList.remove("text-danger")
+                elt.children[1].classList.remove("fw-bold")
                 if (document.cookie.includes("mode=dark")) {
-                    e.target.classList.replace("border-danger", "border-white")
+                    elt.classList.replace("border-danger", "border-white")
                 } else {
-                    e.target.classList.replace("border-danger", "border-dark")
+                    elt.classList.replace("border-danger", "border-dark")
                 }
             } else {
-                e.target.children[0].checked = true
-                e.target.children[1].classList.add("text-danger")
-                e.target.children[1].classList.add("fw-bold")
-                e.target.classList.replace("border-white", "border-danger")
-                e.target.classList.replace("border-dark", "border-danger")
+                elt.children[0].checked = true
+                elt.children[1].classList.add("text-danger")
+                elt.children[1].classList.add("fw-bold")
+                elt.classList.replace("border-white", "border-danger")
+                elt.classList.replace("border-dark", "border-danger")
             }
         })
     }
